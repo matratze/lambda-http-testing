@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello-world/
+      Handler: app.handler
+      Runtime: nodejs12.x
+      Layers:
+        - !Ref HelloWorldLayer
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+  HelloWorldLayer:
+      Type: AWS::Serverless::LayerVersion
+      Properties:
+          LayerName: sam-app-dependencies
+          ContentUri: layer/
+          CompatibleRuntimes:
+            - nodejs12.x
+          RetentionPolicy: Retain

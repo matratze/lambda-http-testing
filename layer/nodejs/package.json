@@ -1,0 +1,7 @@
+{
+  "name": "hello_world_layer",
+  "version": "1.0.0",
+  "description": "hello world layer for NodeJS",
+  "author": "SAM CLI",
+  "license": "MIT"
+}

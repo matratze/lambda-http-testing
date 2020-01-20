@@ -1,0 +1,1 @@
+exports.getGreeting = () => "Hello World!";
